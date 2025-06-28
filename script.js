@@ -1,6 +1,8 @@
 // Hamburger menu toggle
 document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('open');
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+    menu.classList.toggle('translate-x-0');
 });
 
 // Fetch data from MultiversX API
@@ -12,16 +14,29 @@ async function fetchTokenData() {
         // Update dashboard with data
         document.getElementById('price').textContent = `$${data.price ? data.price.toFixed(4) : 'N/A'}`;
         document.getElementById('market-cap').textContent = data.marketCap ? `$${data.marketCap.toLocaleString()}` : 'N/A';
-        document.getElementById('transactions').textContent = data.transactions ? data.transactions.toLocaleString() : 'N/A';
+        document.getElementById('transfers').textContent = data.transfers ? data.transfers.toLocaleString() : 'N/A';
         document.getElementById('holders').textContent = data.accounts ? data.accounts.toLocaleString() : 'N/A';
     } catch (error) {
         console.error('Error fetching token data:', error);
         document.getElementById('price').textContent = 'Error';
         document.getElementById('market-cap').textContent = 'Error';
-        document.getElementById('transactions').textContent = 'Error';
+        document.getElementById('transfers').textContent = 'Error';
         document.getElementById('holders').textContent = 'Error';
     }
 }
 
-// Call the function on page load
+// Particle animation
+function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animation = `float ${Math.random() * 10 + 5}s infinite`;
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Call functions on page load
 fetchTokenData();
+createParticles();
