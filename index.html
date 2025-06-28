@@ -5,106 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xMorPH - Eternity as Perspectives</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="bg-gray-950 text-white font-orbitron overflow-x-hidden">
+    <!-- Particle Background -->
+    <div id="particles" class="absolute inset-0 pointer-events-none"></div>
+
     <!-- Navbar -->
-    <nav class="bg-gray-800 bg-opacity-80 backdrop-blur-md fixed w-full top-0 z-50 transition-all duration-300">
+    <nav class="bg-gray-900 bg-opacity-70 backdrop-blur-lg fixed w-full top-0 z-50 transition-all duration-500">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-400">xMorPH</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
-                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="#dashboard" class="hover:text-blue-400 transition-colors">Dashboard</a>
-                <a href="#partners" class="hover:text-blue-400 transition-colors">Partners</a>
-                <a href="https://www.coingecko.com/en/coins/xmorph" target="_blank" class="hover:text-blue-400 transition-colors">Chart</a>
-                <a href="https://x.com/xMorPH_token" target="_blank" class="hover:text-blue-400 transition-colors">X</a>
+            <a href="#" class="text-3xl font-bold text-blue-400 neon-glow">xMorPH</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-blue-300 transition-colors neon-text">Home</a>
+                <a href="#about" class="hover:text-blue-300 transition-colors neon-text">About</a>
+                <a href="#dashboard" class="hover:text-blue-300 transition-colors neon-text">Dashboard</a>
+                <a href="#legacy" class="hover:text-blue-300 transition-colors neon-text">Join the Legacy</a>
+                <a href="#partners" class="hover:text-blue-300 transition-colors neon-text">Partners</a>
+                <a href="https://www.coingecko.com/en/coins/xmorph" target="_blank" class="hover:text-blue-300 transition-colors neon-text">Chart</a>
+                <a href="https://x.com/xMorPH_token" target="_blank" class="hover:text-blue-300 transition-colors neon-text">X</a>
             </div>
             <button id="hamburger" class="md:hidden text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 bg-opacity-90">
-            <a href="#home" class="block px-4 py-2 hover:bg-blue-600 transition-colors">Home</a>
-            <a href="#about" class="block px-4 py-2 hover:bg-blue-600 transition-colors">About</a>
-            <a href="#dashboard" class="block px-4 py-2 hover:bg-blue-600 transition-colors">Dashboard</a>
-            <a href="#partners" class="block px-4 py-2 hover:bg-blue-600 transition-colors">Partners</a>
-            <a href="https://www.coingecko.com/en/coins/xmorph" target="_blank" class="block px-4 py-2 hover:bg-blue-600 transition-colors">Chart</a>
-            <a href="https://x.com/xMorPH_token" target="_blank" class="block px-4 py-2 hover:bg-blue-600 transition-colors">X</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-90 transform translate-x-full transition-transform duration-300">
+            <a href="#home" class="block px-4 py-3 hover:bg-blue-800 transition-colors neon-text">Home</a>
+            <a href="#about" class="block px-4 py-3 hover:bg-blue-800 transition-colors neon-text">About</a>
+            <a href="#dashboard" class="block px-4 py-3 hover:bg-blue-800 transition-colors neon-text">Dashboard</a>
+            <a href="#legacy" class="block px-4 py-3 hover:bg-blue-800 transition-colors neon-text">Join the Legacy</a>
+            <a href="#partners" class="block px-4 py-3 hover:bg-blue-800 transition-colors neon-text">Partners</a>
+            <a href="https://www.coingecko.com/en/coins/xmorph" target="_blank" class="block px-4 py-3 hover:bg-blue-800 transition-colors neon-text">Chart</a>
+            <a href="https://x.com/xMorPH_token" target="_blank" class="block px-4 py-3 hover:bg-blue-800 transition-colors neon-text">X</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-blue-900">
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 to-blue-950 relative z-10">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-blue-400 animate-pulse">xMorPH</h1>
-            <p class="text-xl md:text-2xl mt-4 text-gray-300">Eternity as Perspectives</p>
-            <p class="mt-6 text-lg max-w-2xl mx-auto">Join the legacy of xMorPH, the rarest token on the MultiversX blockchain. With only 100,000 tokens, xMPH is your ticket to the future of memecoin trading.</p>
-            <a href="https://jexchangedefi.com" target="_blank" class="mt-8 inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-transform transform hover:scale-105">Trade on Jexchange</a>
+            <h1 class="text-6xl md:text-8xl font-extrabold text-blue-400 neon-glow animate-pulse">xMorPH</h1>
+            <p class="text-2xl md:text-3xl mt-4 text-gray-300">Eternity as Perspectives</p>
+            <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-200">Own a piece of the rarest token on the MultiversX blockchain. With only 100,000 xMPH tokens, you're part of a legacy that’s shaping the future of memecoins.</p>
+            <a href="https://jexchangedefi.com" target="_blank" class="mt-8 inline-block bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-500 transition-transform transform hover:scale-110 neon-button">Trade on Jexchange</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-800">
+    <section id="about" class="py-24 bg-gray-900 relative z-10">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">About xMorPH</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="p-6 bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                    <h3 class="text-2xl font-semibold text-blue-300">Scarcity & Volatility</h3>
-                    <p class="mt-4 text-gray-300">With a fixed supply of 100,000 tokens and no decimals, xMPH is designed for high volatility. Every trade can move the market, offering thrilling opportunities for early adopters and traders.</p>
+            <h2 class="text-5xl font-bold text-center text-blue-400 neon-glow mb-12">About xMorPH</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-xl neon-card">
+                    <h3 class="text-2xl font-semibold text-blue-300">Scarcity</h3>
+                    <p class="mt-4 text-gray-200">With a fixed supply of 100,000 tokens and no decimals, xMPH is inherently scarce. Its volatility creates rapid market reactions, offering thrilling opportunities for traders.</p>
                 </div>
-                <div class="p-6 bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <div class="p-8 bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-xl neon-card">
                     <h3 class="text-2xl font-semibold text-blue-300">Immutability</h3>
-                    <p class="mt-4 text-gray-300">xMorPH is built on the MultiversX blockchain, ensuring immutability and trust. No team, no promises—just a token that stands the test of time.</p>
+                    <p class="mt-4 text-gray-200">Built on the MultiversX blockchain, xMorPH ensures trust through immutability. No team, no promises—just a token that stands eternal.</p>
+                </div>
+                <div class="p-8 bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-xl neon-card">
+                    <h3 class="text-2xl font-semibold text-blue-300">Community-Driven</h3>
+                    <p class="mt-4 text-gray-200">xMorPH thrives on organic growth, shared P2P among early ESDT collectors. Its property system sets the standard for serious memecoins.</p>
                 </div>
             </div>
-            <p class="text-center mt-8 text-gray-300">Since its minting on September 8, 2021, xMorPH has evolved from MPH to a resilient standard for memecoins. Convert MPH to xMPH at a 1:1 ratio on JexchangeDefi and join the future!</p>
+            <p class="text-center mt-12 text-lg text-gray-200 max-w-4xl mx-auto">Launched on September 8, 2021, with 100,000 MPH tokens, xMorPH evolved on October 2, 2023, into a resilient standard. Convert MPH to xMPH at a 1:1 ratio on JexchangeDefi and join the future of memecoin trading!</p>
         </div>
     </section>
 
     <!-- Dashboard Section -->
-    <section id="dashboard" class="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
+    <section id="dashboard" class="py-24 bg-gradient-to-br from-gray-950 to-blue-950 relative z-10">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">xMorPH Dashboard</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div class="p-6 bg-gray-700 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform">
+            <h2 class="text-5xl font-bold text-center text-blue-400 neon-glow mb-12">xMorPH Dashboard</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="p-8 bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-xl neon-card text-center transform hover:scale-105 hover:rotate-1 transition-all duration-300">
                     <h3 class="text-xl font-semibold text-blue-300">Price</h3>
-                    <p id="price" class="text-2xl mt-4 text-gray-300">Loading...</p>
+                    <p id="price" class="text-2xl mt-4 text-gray-200">Loading...</p>
                 </div>
-                <div class="p-6 bg-gray-700 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform">
+                <div class="p-8 bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-xl neon-card text-center transform hover:scale-105 hover:rotate-1 transition-all duration-300">
                     <h3 class="text-xl font-semibold text-blue-300">Market Cap</h3>
-                    <p id="market-cap" class="text-2xl mt-4 text-gray-300">Loading...</p>
+                    <p id="market-cap" class="text-2xl mt-4 text-gray-200">Loading...</p>
                 </div>
-                <div class="p-6 bg-gray-700 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform">
-                    <h3 class="text-xl font-semibold text-blue-300">Transactions</h3>
-                    <p id="transactions" class="text-2xl mt-4 text-gray-300">Loading...</p>
+                <div class="p-8 bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-xl neon-card text-center transform hover:scale-105 hover:rotate-1 transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-blue-300">Transfers</h3>
+                    <p id="transfers" class="text-2xl mt-4 text-gray-200">Loading...</p>
                 </div>
-                <div class="p-6 bg-gray-700 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform">
+                <div class="p-8 bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-xl neon-card text-center transform hover:scale-105 hover:rotate-1 transition-all duration-300">
                     <h3 class="text-xl font-semibold text-blue-300">Holders</h3>
-                    <p id="holders" class="text-2xl mt-4 text-gray-300">Loading...</p>
+                    <p id="holders" class="text-2xl mt-4 text-gray-200">Loading...</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Join the Legacy Section -->
+    <section id="legacy" class="py-24 bg-gray-900 relative z-10">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-5xl font-bold text-blue-400 neon-glow mb-12">Join the xMorPH Legacy</h2>
+            <p class="text-xl text-gray-200 max-w-3xl mx-auto">"1,000 xMorPH will transform you into a crypto whale!"</p>
+            <p class="mt-6 text-lg text-gray-200 max-w-3xl mx-auto">No team, no project, no cost. Can't fail! xMorPH is the next level of memecoin trading with no promises, just pure token potential. Set limit orders on Jexchange and ride the volatility.</p>
+            <a href="https://x.com/xMorPH_token" target="_blank" class="mt-8 inline-block bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-500 transition-transform transform hover:scale-110 neon-button">Check Latest X Posts</a>
+        </div>
+    </section>
+
     <!-- Partners Section -->
-    <section id="partners" class="py-20 bg-gray-800">
+    <section id="partners" class="py-24 bg-gray-900 relative z-10">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">Partners & Tools</h2>
+            <h2 class="text-5xl font-bold text-center text-blue-400 neon-glow mb-12">Partners & Tools</h2>
             <div class="flex flex-wrap justify-center gap-8">
-                <a href="https://jexchangedefi.com" target="_blank" class="p-4 bg-gray-700 rounded-lg hover:bg-blue-600 transition-colors">JexchangeDefi</a>
-                <a href="https://multiversx.com" target="_blank" class="p-4 bg-gray-700 rounded-lg hover:bg-blue-600 transition-colors">MultiversX</a>
-                <a href="https://www.coingecko.com/en/coins/xmorph" target="_blank" class="p-4 bg-gray-700 rounded-lg hover:bg-blue-600 transition-colors">CoinGecko</a>
+                <a href="https://jexchangedefi.com" target="_blank" class="p-6 bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-xl hover:bg-blue-800 transition-colors neon-card">JexchangeDefi</a>
+                <a href="https://multiversx.com" target="_blank" class="p-6 bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-xl hover:bg-blue-800 transition-colors neon-card">MultiversX</a>
+                <a href="https://www.coingecko.com/en/coins/xmorph" target="_blank" class="p-6 bg-gray-800 bg-opacity-70 backdrop-blur-md rounded-xl hover:bg-blue-800 transition-colors neon-card">CoinGecko</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-6 text-center">
-        <p class="text-gray-300">Created by <a href="https://x.com/VPopescu_" target="_blank" class="text-blue-400 hover:text-blue-300">Vlad.egld</a> with ❤️ for xMPH</p>
+    <footer class="bg-gray-950 py-6 text-center relative z-10">
+        <p class="text-gray-200">Created by <a href="https://x.com/VPopescu_" target="_blank" class="text-blue-400 hover:text-blue-300 neon-text">Vlad.egld</a> with ❤️ for xMPH</p>
     </footer>
 
     <script src="script.js"></script>
