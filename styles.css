@@ -1,57 +1,95 @@
-/* Custom styles for additional effects */
+/* Custom futuristic styles */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     scroll-behavior: smooth;
+    background: #1F2937;
 }
 
 nav {
-    box-shadow: 0 4px 6px rgba(0, 0ස
-
-ection {
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-#mobile-menu.open {
-    transform: translateX(0);
+.neon-glow {
+    text-shadow: 0 0 5px #60A5FA, 0 0 10px #60A5FA, 0 0 20px #60A5FA;
 }
 
-/* Smooth transitions for hover effects */
-a:hover, button:hover {
+.neon-text:hover {
+    text-shadow: 0 0 5px #93C5FD, 0 0 10px #93C5FD;
+}
+
+.neon-button {
+    box-shadow: 0 0 10px #60A5FA, 0 0 20px #60A5FA;
+}
+
+.neon-button:hover {
+    box-shadow: 0 0 15px #93C5FD, 0 0 30px #93C5FD;
+}
+
+.neon-card {
+    position: relative;
+    border: 1px solid rgba(96, 165, 250, 0.3);
     transition: all 0.3s ease;
 }
 
-/* Neon glow effect for cards */
-.bg-gray-700 {
-    position: relative;
-    overflow: hidden;
-}
-
-.bg-gray-700::before {
+.neon-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0));
+    inset: 0;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(147, 197, 253, 0));
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
-.bg-gray-700:hover::before {
+.neon-card:hover::before {
     opacity: 1;
 }
 
-/* Ensure text contrast meets accessibility standards */
-.text-gray-300 {
-    color: #D1D5DB; /* Light gray for readability */
+.neon-card:hover {
+    transform: translateY(-5px) rotate(1deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(96, 165, 250, 0.5);
+}
+
+/* Particle background */
+#particles div {
+    position: absolute;
+    background: #60A5FA;
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    opacity: 0.5;
+    animation: float 10s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* Mobile menu transition */
+#mobile-menu {
+    transform: translateX(100%);
+}
+
+#mobile-menu.translate-x-0 {
+    transform: translateX(0);
+}
+
+/* Accessibility and contrast */
+.text-gray-200 {
+    color: #D1D5DB; /* High contrast for readability */
 }
 
 .text-blue-300 {
-    color: #93C5FD; /* Medium blue for accents */
+    color: #93C5FD; /* Medium blue */
 }
 
 .text-blue-400 {
-    color: #60A5FA; /* Light blue for headings */
+    color: #60A5FA; /* Light blue */
+}
+
+/* Ensure smooth transitions */
+a, button {
+    transition: all 0.3s ease;
 }
