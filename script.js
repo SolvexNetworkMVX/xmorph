@@ -5,6 +5,27 @@ document.getElementById('hamburger').addEventListener('click', () => {
     menu.classList.toggle('translate-x-0');
 });
 
+// Smooth scrolling for navbar and mobile menu links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default anchor behavior
+        const targetId = this.getAttribute('href').substring(1); // Get the target section ID
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Adjust for fixed navbar height
+                behavior: 'smooth' // Enable smooth scrolling
+            });
+        }
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('translate-x-0');
+        }
+    });
+});
+
 // Fetch data from MultiversX API
 async function fetchTokenData() {
     try {
